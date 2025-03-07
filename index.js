@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors()); // Enable CORS to allow frontend on InfinityFree to access the backend
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://bloguser:c1B5sq1hI7s99Uer:c1B5sq1hI7s99Uer@blog-cluster.pbnn0.mongodb.net/?retryWrites=true&w=majority&appName=blog-cluster', {
+mongoose.connect(process.env.MONGODB_URI ||'mongodb+srv://bloguser:c1B5sq1hI7s99Uer:c1B5sq1hI7s99Uer@blog-cluster.pbnn0.mongodb.net/?retryWrites=true&w=majority&appName=blog-cluster', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB connected'))
